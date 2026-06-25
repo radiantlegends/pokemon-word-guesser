@@ -1,0 +1,22 @@
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: calc(100vh - 150px);
+}
+
+#hints-panel {
+    border-right: 2px solid #ccc;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+#answers-panel {
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+#scores-panel {
+    height: 150px;
+    border-top: 2px solid #ccc;
+    padding: 1rem;
+}

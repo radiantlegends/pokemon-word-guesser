@@ -28,7 +28,7 @@ This project is currently in active development. You can view the live version h
 
 The goal is to create a lightweight, fun, and expandable version of the game that runs entirely in the browser and is easy to host on GitHub Pages.
 
-## 🗺️ Roadmap
+## Roadmap
 
 A full development roadmap is available in:\
 **`ROADMAP.md`**

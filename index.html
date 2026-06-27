@@ -2,23 +2,146 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Pokémon Guess 20</title>
+        <title>Pokémon Word Guesser</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>Pokémon Guess 20</h1>
+        <h1>Pokémon Word Guesser</h1>
 
         <main>
             <section id="hints-panel">
-                <!-- Hints will go here -->
+                <h2>Hints</h2>
+
+                <div id="hint-input-area">
+                    <input type="text" id="hint-input" placeholder="Enter a hint...">
+                    <button id="add-hint-btn">Add Hint</button>
+                </div>
+
+                <ol id="hints-list">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
             </section>
             <aside id="answers-panel">
-                <!-- Correct answers will go here -->
+                <h2>Answers</h2>
+
+                <ol id="answers-list">
+                    <li>
+                        <span class="answer-text"></span>
+                        <button class="reveal-btn">Reveal</button>
+                        <span class="guesser-tag"></span>
+                    </li>
+                    <li>
+                        <span class="answer-text"></span>
+                        <button class="reveal-btn">Reveal</button>
+                        <span class="guesser-tag"></span>
+                    </li>
+                    <li>
+                        <span class="answer-text"></span>
+                        <button class="reveal-btn">Reveal</button>
+                        <span class="guesser-tag"></span>
+                    </li>
+                    <li>
+                        <span class="answer-text"></span>
+                        <button class="reveal-btn">Reveal</button>
+                        <span class="guesser-tag"></span>
+                    </li>
+                    <li>
+                        <span class="answer-text"></span>
+                        <button class="reveal-btn">Reveal</button>
+                        <span class="guesser-tag"></span>
+                    </li>
+                    <li>
+                        <span class="answer-text"></span>
+                        <button class="reveal-btn">Reveal</button>
+                        <span class="guesser-tag"></span>
+                    </li>
+                    <li>
+                        <span class="answer-text"></span>
+                        <button class="reveal-btn">Reveal</button>
+                        <span class="guesser-tag"></span>
+                    </li>
+                    <li>
+                        <span class="answer-text"></span>
+                        <button class="reveal-btn">Reveal</button>
+                        <span class="guesser-tag"></span>
+                    </li>
+                    <li>
+                        <span class="answer-text"></span>
+                        <button class="reveal-btn">Reveal</button>
+                        <span class="guesser-tag"></span>
+                    </li>
+                    <li>
+                        <span class="answer-text"></span>
+                        <button class="reveal-btn">Reveal</button>
+                        <span class="guesser-tag"></span>
+                    </li>
+                </ol>
             </aside>
         </main>
         
         <footer id="scores-panel">
-            <!-- Scores go here -->
+            <h2>Scores</h2>
+
+            <div id="players">
+                <div class="player red">
+                    <span class="player-name">Player 1</span>
+                    <span class="player-score">0</span>
+                </div>
+
+                <div class="player pink">
+                    <span class="player-name">Player 2</span>
+                    <span class="player-score">0</span>
+                </div>
+
+                <div class="player orange">
+                    <span class="player-name">Player 3</span>
+                    <span class="player-score">0</span>
+                </div>
+
+                <div class="player purple">
+                    <span class="player-name">Player 4</span>
+                    <span class="player-score">0</span>
+                </div>
+            </div>
         </footer>
 
         <script src="script.js"></script>

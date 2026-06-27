@@ -1,7 +1,16 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
 main {
     display: grid;
+    flex: 1;
     grid-template-columns: 2fr 1fr;
-    height: calc(100vh - 150px);
+    gap: 0;
 }
 
 #hints-panel {
@@ -16,7 +25,7 @@ main {
 }
 
 #scores-panel {
-    height: 150px;
+    height: 120px;
     border-top: 2px solid #ccc;
     padding: 1rem;
 }

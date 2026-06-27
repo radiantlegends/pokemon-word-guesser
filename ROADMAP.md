@@ -15,29 +15,29 @@ The project should be lightweight, easy to host on GitHub Pages, and expandable 
 ## Minimum Viable Product
 
 ### **1. Basic Page Structure**
-- `index.html` with:
-  - Header/title
-  - Hint input field + “Add Hint” button
-  - Hint list display
-  - List of 10 answers (hidden or revealable)
-  - Score display
+- [x] `index.html` with:
+  - [x] Header/title
+  - [x] Hint input field + “Add Hint” button
+  - [x] Hint list display
+  - [x] List of 10 answers (hidden or revealable)
+  - [x] Score display
 
 ### **2. Core Game Logic**
-- Array of 10 answers (hardcoded for now)
-- Hint counter
-- Function to add hints
-- Function to calculate score:
-  - Score = 25 − hintsUsed
-  - Negative scores allowed if hintsUsed > 25
-- Buttons to reveal each answer
-- Button to mark an answer as correctly guessed
+- [ ] Array of 10 answers (hardcoded for now)
+- [ ] Hint counter
+- [ ] Function to add hints
+- [ ] Function to calculate score:
+  - [ ] Score = 25 − hintsUsed
+  - [ ] Negative scores allowed if hintsUsed > 25
+- [ ] Buttons to reveal each answer
+- [ ] Button to mark an answer as correctly guessed
 
 ### **3. Basic Styling**
-- Simple layout with three blocks:
-  - Left: hints
-  - Right: answers
-  - Bottom: scoring
-- Responsive enough to work on desktop and mobile
+- [x] Simple layout with three blocks:
+  - [x] Left: hints
+  - [x] Right: answers
+  - [x] Bottom: scoring
+- [ ] Responsive enough to work on desktop and mobile
 
 ### **4. Reset / New Game**
 - Button to clear hints
@@ -47,6 +47,7 @@ The project should be lightweight, easy to host on GitHub Pages, and expandable 
 ## Phase 2: Quality of Life Improvements
 
 ### **UI Enhancements**
+- Remove "Add Hint" area and replace with enabling/focus next input.
 - Better layout and spacing
 - Color themes (light/dark)
 - Animated hint additions

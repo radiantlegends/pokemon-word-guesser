@@ -79,6 +79,10 @@ main {
     background: #fafafa;
 }
 
+.revealed .answer-text {
+    font-weight: bold;
+}
+
 #scores-panel {
     padding: 1rem;
     background: #f7f7f7;

@@ -23,9 +23,8 @@ The project should be lightweight, easy to host on GitHub Pages, and expandable 
   - [x] Score display
 
 ### **Core Game Logic**
-- [ ] Array of 10 answers (hardcoded for now)
-- [ ] Hint counter
-- [ ] Function to add hints
+- [x] Array of 10 answers (hardcoded for now)
+- [x] Function to add hints
 - [ ] Function to calculate score:
   - [ ] Score = 25 − hintsUsed
   - [ ] Negative scores allowed if hintsUsed > 25

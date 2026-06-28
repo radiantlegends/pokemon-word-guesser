@@ -117,7 +117,8 @@ document.querySelectorAll("#player-select button").forEach(btn => {
             players[oldPlayer].element.textContent = players[oldPlayer].score;
         } else {
             //First time: reveal the answer and disable the button.
-            answerText.textContent = answers[answerIndex];        revealBtn.disabled = true;
+            answerText.textContent = answers[answerIndex];
+            revealBtn.disabled = true;
             revealBtn.textContent = "Revealed";
         }
 
@@ -144,15 +145,19 @@ document.querySelectorAll("#player-select button").forEach(btn => {
             const score = 25 - hintIndex;
             players[hintGiver].score += score;
             players[hintGiver].element.textContent = players[hintGiver].score;
-            hintGiver = (hintGiver + 1) % 4;
-            updateHintGiver();
+            resetRound();
         }
     });
 });
 
 function updateHintGiver() {
     document.querySelectorAll(".player").forEach((p, i) => {
-        p.classList.toggle("hint-giver", i === hintGiver);
+        const label = p.querySelector(".hint-label");
+        if (i === hintGiver) {
+            label.textContent = "Hinter";
+        } else {
+            label.textContent = "";
+        }
     });
     document.querySelector(`#player-select button[data-player="${hintGiver}"]`).disabled = true;
     document.querySelectorAll("#player-select button").forEach(btn => {
@@ -162,3 +167,85 @@ function updateHintGiver() {
 }
 
 updateHintGiver();
+
+function resetRound() {
+    //Reset the hint index.
+    hintIndex = 0;
+
+    //Clear all hint slots.
+    slots.forEach(li => {
+        li.textContent = "";
+    });
+
+    //Clear all answers.
+    document.querySelectorAll("#answers-list li").forEach(li => {
+        li.querySelector(".answer-text").textContent = "";
+        li.querySelector(".reveal-btn").disabled = false;
+        li.querySelector(".reveal-btn").textContent = "Reveal";
+        
+        const tag = li.querySelector(".guesser-tag");
+        tag.className = "guesser-tag";
+        tag.textContent = "";
+
+        delete li.dataset.player;
+    });
+
+    //Hide the selector, if it was open.
+    const selector = document.getElementById("player-select");
+    selector.classList.add("hidden");
+    delete selector.dataset.currentIndex;
+    delete selector.dataset.isChange;
+
+    //Rotate to the next hint giver.
+    hintGiver = (hintGiver + 1) % 4;
+    updateHintGiver();
+
+    //Refocus the hint input.
+    input.value = "";
+    input.focus();
+}
+
+function resetGame() {
+    //Reset the hint index.
+    hintIndex = 0;
+
+    //Clear all hint slots.
+    slots.forEach(li => {
+        li.textContent = "";
+    });
+
+    //Clear all answers.
+    document.querySelectorAll("#answers-list li").forEach(li => {
+        li.querySelector(".answer-text").textContent = "";
+        li.querySelector(".reveal-btn").disabled = false;
+        li.querySelector(".reveal-btn").textContent = "Reveal";
+        
+        const tag = li.querySelector(".guesser-tag");
+        tag.className = "guesser-tag";
+        tag.textContent = "";
+
+        delete li.dataset.player;
+    });
+
+    //Hide the selector, if it was open.
+    const selector = document.getElementById("player-select");
+    selector.classList.add("hidden");
+    delete selector.dataset.currentIndex;
+    delete selector.dataset.isChange;
+
+    //Reset the hint giver.
+    hintGiver = 0;
+
+    //Clear the scores.
+    players.forEach(player => {
+        player.score = 0;
+        player.element.textContent = player.score;
+    });
+
+    //Refocus the hint input.
+    input.value = "";
+    input.focus();
+}
+
+document.getElementById("new-round-btn").addEventListener("click", resetRound);
+document.getElementById("restart-game-btn").addEventListener("click", resetGame);

@@ -39,9 +39,10 @@ The project should be lightweight, easy to host on GitHub Pages, and expandable 
 - [ ] Responsive enough to work on desktop and mobile
 
 ### **Reset / New Game**
-- Button to clear hints
-- Reset scores
-- Reset revealed answers
+- [x] Reset the round
+   - [x] When all answers are revealed
+   - [x] With a button
+- [x] Reset the game
 
 ## Phase 2: Quality of Life Improvements
 

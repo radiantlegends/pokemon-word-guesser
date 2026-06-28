@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pokémon Word Guesser</title>
         <link rel="stylesheet" href="style.css">
     </head>
@@ -123,24 +124,34 @@
 
             <div id="players">
                 <div class="player red">
+                    <span class="hint-label"></span>
                     <span class="player-name">Player 1</span>
                     <span class="player-score">0</span>
                 </div>
 
                 <div class="player blue">
+                    <span class="hint-label"></span>
                     <span class="player-name">Player 2</span>
                     <span class="player-score">0</span>
                 </div>
 
                 <div class="player green">
+                    <span class="hint-label"></span>
                     <span class="player-name">Player 3</span>
                     <span class="player-score">0</span>
                 </div>
 
                 <div class="player yellow">
+                    <span class="hint-label"></span>
                     <span class="player-name">Player 4</span>
                     <span class="player-score">0</span>
                 </div>
+            </div>
+
+            <div id="reset-area">
+                <hr>
+                <button id="new-round-btn">Start New Round</button>
+                <button id="restart-game-btn">Restart Game</button>
             </div>
         </footer>
 

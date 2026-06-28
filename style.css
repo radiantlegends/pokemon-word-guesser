@@ -19,13 +19,97 @@ main {
     overflow-y: auto;
 }
 
+#hints-list {
+    padding: 0;
+    margin-top: 1rem;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(10, auto);
+    grid-auto-columns: 1fr;
+    list-style: none;
+    counter-reset: hint-counter;
+    gap: 0.5rem;
+}
+
+#hints-list li::before {
+    counter-increment: hint-counter;
+    content: counter(hint-counter) ". ";
+    margin-right: 0.25rem;
+}
+
+#hints-list li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    white-space: nowrap;
+    min-height: 1.5rem;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #ccc;
+    background: #fafafa;
+}
+
 #answers-panel {
     padding: 1rem;
     overflow-y: auto;
 }
 
-#scores-panel {
-    height: 120px;
-    border-top: 2px solid #ccc;
-    padding: 1rem;
+#answers-list {
+    padding: 0;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-rows: repeat(10, auto);
+    grid-auto-flow: row;
+    list-style: none;
+    counter-reset: answer-counter;
+    gap: 0.5rem;
 }
+
+#answers-list li::before {
+    counter-increment: answer-counter;
+    content: counter(answer-counter) ". ";
+    margin-right: 0.25rem;
+}
+
+#answers-list li {
+    display: flex;
+    align-items: left;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #ccc;
+    background: #fafafa;
+}
+
+#scores-panel {
+    padding: 1rem;
+    background: #f7f7f7;
+    border-top: 2px solid #ccc;
+}
+
+#players {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    min-width: 80px;
+}
+
+.player-score {
+    font-size: 1.6rem;
+    margin-top: 0.25rem;
+}
+
+.player.red { background: #e74c3c; }
+.player.blue { background: #3498db; }
+.player.green { background: #2ecc71; }
+.player.yellow { background: #f1c40f; }

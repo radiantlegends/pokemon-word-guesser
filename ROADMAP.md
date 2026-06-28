@@ -14,7 +14,7 @@ The project should be lightweight, easy to host on GitHub Pages, and expandable 
 
 ## Minimum Viable Product
 
-### **1. Basic Page Structure**
+### **Basic Page Structure**
 - [x] `index.html` with:
   - [x] Header/title
   - [x] Hint input field + “Add Hint” button
@@ -22,7 +22,7 @@ The project should be lightweight, easy to host on GitHub Pages, and expandable 
   - [x] List of 10 answers (hidden or revealable)
   - [x] Score display
 
-### **2. Core Game Logic**
+### **Core Game Logic**
 - [ ] Array of 10 answers (hardcoded for now)
 - [ ] Hint counter
 - [ ] Function to add hints
@@ -32,14 +32,14 @@ The project should be lightweight, easy to host on GitHub Pages, and expandable 
 - [ ] Buttons to reveal each answer
 - [ ] Button to mark an answer as correctly guessed
 
-### **3. Basic Styling**
+### **Basic Styling**
 - [x] Simple layout with three blocks:
   - [x] Left: hints
   - [x] Right: answers
   - [x] Bottom: scoring
 - [ ] Responsive enough to work on desktop and mobile
 
-### **4. Reset / New Game**
+### **Reset / New Game**
 - Button to clear hints
 - Reset scores
 - Reset revealed answers

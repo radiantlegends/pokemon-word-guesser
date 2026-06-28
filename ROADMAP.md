@@ -25,11 +25,11 @@ The project should be lightweight, easy to host on GitHub Pages, and expandable 
 ### **Core Game Logic**
 - [x] Array of 10 answers (hardcoded for now)
 - [x] Function to add hints
+- [x] Buttons to reveal each answer
+- [x] Button to mark who won the guess
 - [ ] Function to calculate score:
   - [ ] Score = 25 − hintsUsed
   - [ ] Negative scores allowed if hintsUsed > 25
-- [ ] Buttons to reveal each answer
-- [ ] Button to mark an answer as correctly guessed
 
 ### **Basic Styling**
 - [x] Simple layout with three blocks:

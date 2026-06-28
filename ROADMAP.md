@@ -27,9 +27,9 @@ The project should be lightweight, easy to host on GitHub Pages, and expandable 
 - [x] Function to add hints
 - [x] Buttons to reveal each answer
 - [x] Button to mark who won the guess
-- [ ] Function to calculate score:
-  - [ ] Score = 25 − hintsUsed
-  - [ ] Negative scores allowed if hintsUsed > 25
+- [x] Function to calculate score:
+  - [x] Score = 25 − hintsUsed
+  - [x] Negative scores allowed if hintsUsed > 25
 
 ### **Basic Styling**
 - [x] Simple layout with three blocks:

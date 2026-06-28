@@ -106,6 +106,26 @@ main {
     pointer-events: none;
 }
 
+#player-select {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 0.25rem;
+    border-radius: 4px;
+    display: flex;
+    gap: 0.25rem;
+}
+
+#player-select.hidden {
+    display: none;
+}
+
+#player-select button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
 #scores-panel {
     padding: 1rem;
     background: #f7f7f7;
@@ -141,22 +161,17 @@ main {
 .green { background: #2ecc71; }
 .yellow { background: #f1c40f; }
 
-#player-select {
+.player.hint-giver {
+    outline: 3px solid black;
+    position: relative;
+}
+
+.player.hint-giver::before {
+    content: "Hinter";
     position: absolute;
-    background: white;
-    border: 1px solid #ccc;
-    padding: 0.25rem;
-    border-radius: 4px;
-    display: flex;
-    gap: 0.25rem;
-}
-
-#player-select.hidden {
-    display: none;
-}
-
-#player-select button {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.8rem;
-    cursor: pointer;
+    top: -1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    font-weight: bold;
 }

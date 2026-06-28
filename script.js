@@ -3,6 +3,7 @@ const button = document.getElementById("add-hint-btn");
 const slots = document.querySelectorAll("#hints-list li");
 
 let hintIndex = 0;
+let hintGiver = 0;
 
 function addHint() {
     const text = input.value.trim();
@@ -66,7 +67,7 @@ document.querySelectorAll("#answers-list li").forEach((li, index) => {
         selector.style.left = `${rect.left + window.scrollX}px`;
 
         selector.classList.remove("hidden");
-        selector.dataset.currentIndx = index;
+        selector.dataset.currentIndex = index;
         selector.dataset.isChange = "true";
     });
 });
@@ -91,12 +92,18 @@ const answers = [
     "Rayquaza"
 ]
 
+//Select the player who guessed correctly.
 document.querySelectorAll("#player-select button").forEach(btn => {
     btn.addEventListener("click", () => {
         const playerIndex = Number(btn.dataset.player);
         const selector = document.getElementById("player-select");
         const answerIndex = Number(selector.dataset.currentIndex);
         const isChange = selector.dataset.isChange === "true";
+
+        if(playerIndex === hintGiver) {
+            console.warn("Hint giver cannot guess.");
+            return;
+        }
 
         const li = document.querySelectorAll("#answers-list li")[answerIndex];
         const answerText = li.querySelector(".answer-text");
@@ -130,5 +137,28 @@ document.querySelectorAll("#player-select button").forEach(btn => {
         //Reset the selector state.
         selector.classList.add("hidden");
         delete selector.dataset.isChange;
+
+        //Score the hint giver when all answers are revealed.
+        const lis = document.querySelectorAll("#answers-list li");
+        if(Array.from(lis).every(li => li.dataset.player !== undefined)) {
+            const score = 25 - hintIndex;
+            players[hintGiver].score += score;
+            players[hintGiver].element.textContent = players[hintGiver].score;
+            hintGiver = (hintGiver + 1) % 4;
+            updateHintGiver();
+        }
     });
 });
+
+function updateHintGiver() {
+    document.querySelectorAll(".player").forEach((p, i) => {
+        p.classList.toggle("hint-giver", i === hintGiver);
+    });
+    document.querySelector(`#player-select button[data-player="${hintGiver}"]`).disabled = true;
+    document.querySelectorAll("#player-select button").forEach(btn => {
+        btn.disabled = false;
+    });
+    document.querySelector(`#player-select button[data-player="${hintGiver}"]`).disabled = true;
+}
+
+updateHintGiver();

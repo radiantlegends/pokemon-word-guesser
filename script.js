@@ -37,6 +37,8 @@ document.querySelectorAll("#answers-list li").forEach((li, index) => {
     const revealBtn = li.querySelector(".reveal-btn");
 
     revealBtn.addEventListener("click", (e) => {
+        if(revealBtn.disabled) return;
+
         const selector = document.getElementById("player-select");
         const rect = revealBtn.getBoundingClientRect();
 
@@ -54,23 +56,26 @@ document.querySelectorAll("#answers-list li").forEach((li, index) => {
 //Attach a listener to the guesser tag to allow host to change guesser.
 document.querySelectorAll("#answers-list li").forEach((li, index) => {
     const tag = li.querySelector(".guesser-tag");
-
-    tag.addEventListener("click", () => {
-        //If no one has been assigned, do nothing.
-        if(li.dataset.player === undefined) return;
-
-        const selector = document.getElementById("player-select");
-        const rect = tag.getBoundingClientRect();
-
-        //Position the player selector.
-        selector.style.top = `${rect.bottom + window.scrollY}px`;
-        selector.style.left = `${rect.left + window.scrollX}px`;
-
-        selector.classList.remove("hidden");
-        selector.dataset.currentIndex = index;
-        selector.dataset.isChange = "true";
-    });
+    tag.addEventListener("click", changeGuesser);
 });
+
+function changeGuesser() {
+    const li = this.closest("li");
+    if(li.dataset.player === undefined) return;
+
+    console.log(li.dataset.player);
+
+    const selector = document.getElementById("player-select");
+    const rect = tag.getBoundingClientRect();
+
+    //Position the player selector.
+    selector.style.top = `${rect.bottom + window.scrollY}px`;
+    selector.style.left = `${rect.left + window.scrollX}px`;
+
+    selector.classList.remove("hidden");
+    selector.dataset.currentIndex = index;
+    selector.dataset.isChange = "true";
+}
 
 const players = [
     { score: 0, element: document.querySelector(".player.red .player-score") },
@@ -159,7 +164,6 @@ function updateHintGiver() {
             label.textContent = "";
         }
     });
-    document.querySelector(`#player-select button[data-player="${hintGiver}"]`).disabled = true;
     document.querySelectorAll("#player-select button").forEach(btn => {
         btn.disabled = false;
     });

@@ -108,6 +108,10 @@ main {
     pointer-events: none;
 }
 
+.guesser-tag:empty {
+    pointer-events: none;
+}
+
 #player-select {
     position: absolute;
     background: white;

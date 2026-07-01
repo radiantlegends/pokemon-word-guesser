@@ -132,6 +132,10 @@ main {
     cursor: pointer;
 }
 
+#player-select button:disabled {
+    cursor: default;
+}
+
 #scores-panel {
     padding: 1rem;
     background: #f7f7f7;

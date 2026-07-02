@@ -112,6 +112,8 @@ The project should be lightweight, easy to host on GitHub Pages, and expandable 
 - Mobile‑optimized layout
 - Accessibility improvements (keyboard navigation, ARIA labels)
 
+---
+
 ## Development Checklist
 
 ### MVP
@@ -125,7 +127,8 @@ The project should be lightweight, easy to host on GitHub Pages, and expandable 
 - [x] Basic CSS layout
 
 ### Phase 2
-- [ ] Improved styling
+- [x] Refactor JS to modules
+- [x] Improved styling
 - [ ] Animations
 - [ ] LocalStorage saving
 - [ ] Custom answer lists
@@ -135,6 +138,7 @@ The project should be lightweight, easy to host on GitHub Pages, and expandable 
 - [ ] PokéAPI integration
 - [ ] Random Pokémon generator
 - [ ] Sprite display
+- [ ] Refined styling
 
 ### Phase 4
 - [ ] Presenter/Guesser modes

@@ -1,0 +1,228 @@
+header h1 {
+    text-align: center;
+}
+
+.game-container h2 {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+
+
+button {
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+button.primary {
+    background: #4dabf7;
+}
+
+button.primary:hover {
+    background: #339af0;
+}
+
+button.secondary, button.reveal-btn {
+    background: #adb5bd;
+}
+
+button.secondary:hover, button.reveal-btn:hover {
+    background: #9ba1a8;
+}
+
+
+
+button:disabled {
+    display: none;
+}
+
+
+
+#hint-input-area {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#hint-input-area input {
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+}
+
+#hints-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(10, auto);
+    grid-auto-columns: 1fr;
+    list-style: none;
+    counter-reset: hint-counter;
+    gap: 0.5rem;
+}
+
+#hints-list li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    background: #fafafa;
+    border: 1px solid var(--border);
+    padding: 6px 10px;
+    border-radius: var(--radius);
+
+    white-space: nowrap;
+    min-height: 1.5rem;
+}
+
+#hints-list li::before {
+    counter-increment: hint-counter;
+    content: counter(hint-counter) ". ";
+    margin-right: 6px;
+}
+
+
+
+#answers-list {
+    padding: 0;
+    margin-top: 1rem;
+
+    display: grid;
+    grid-template-rows: repeat(10, auto);
+    grid-auto-flow: row;
+
+    list-style: none;
+    counter-reset: answer-counter;
+    gap: 0.5rem;
+}
+
+#answers-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    background: #fafafa;
+    border: 1px solid var(--border);
+    padding: 10px;
+    border-radius: var(--radius);
+}
+
+.answer-text {
+    font-weight: 600;
+}
+
+
+
+button.red, .guesser-tag.red { background: var(--red); }
+button.blue, .guesser-tag.blue { background: var(--blue); }
+button.green, .guesser-tag.green { background: var(--green); }
+button.yellow, .guesser-tag.yellow { background: var(--yellow); }
+
+button.red:hover, .guesser-tag.red:hover { background: var(--red-hover); }
+button.blue:hover, .guesser-tag.blue:hover { background: var(--blue-hover); }
+button.green:hover, .guesser-tag.green:hover { background: var(--green-hover); }
+button.yellow:hover, .guesser-tag.yellow:hover { background: var(--yellow-hover); }
+
+
+
+#player-select {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 0.25rem;
+    border-radius: 4px;
+    display: flex;
+    gap: 0.25rem;
+}
+
+#player-select.hidden {
+    display: none;
+}
+
+#player-select button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+
+
+.guesser-tag {
+    padding: 4px 8px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    transition: background 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.guesser-tag:empty {
+    pointer-events: none;
+    background: transparent;
+    transition: none;
+}
+
+.guesser-tag:hover::after {
+    content: "Click to change winner.";
+    position: absolute;
+    top: -1.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+
+
+#players {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: var(--radius);
+    background: #fafafa;
+    border: 1px solid var(--border);
+    width: 82px;
+}
+
+.player.red { border-top: 6px solid var(--red); }
+.player.blue { border-top: 6px solid var(--blue); }
+.player.green { border-top: 6px solid var(--green); }
+.player.yellow { border-top: 6px solid var(--yellow); }
+
+
+.hint-label {
+    height: 21px;
+}
+
+
+#reset-area {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#reset-area hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin-bottom: 12px;
+}

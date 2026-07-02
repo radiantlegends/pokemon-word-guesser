@@ -14,7 +14,7 @@ export function updateScore(playerIndex, amount) {
 export function updateHintGiver() {
     document.querySelectorAll(".player").forEach((player, index) => {
         const label = player.querySelector(".hint-label");
-        label.textContent = index === state.hintGiver ? "Hinter" : "";
+        label.textContent = index === state.hintGiver ? "👑" : "";
     });
 
     document.querySelectorAll("#player-select button").forEach((button) => {

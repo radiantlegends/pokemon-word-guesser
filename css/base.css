@@ -1,0 +1,30 @@
+:root {
+    --bg: #f7f6f9;
+    --card-bg: #ffffff;
+    --border: #e2e2e8;
+    --radius: 10px;
+    --shadow: 0 2px 6px rgba(0,0,0,0.06);
+
+    --red: #ff6b6b;
+    --red-hover: #e65252;
+    --blue: #4dabf7;
+    --blue-hover: #3892dd;
+    --green: #69db7c;
+    --green-hover: #4bc860;
+    --yellow: #ffd43b;
+    --yellow-hover: #f1be23;
+
+    --font: "Inter", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: var(--bg);
+    font-family: var(--font);
+    color: #333;
+}
+
+h1, h2 {
+    margin: 0;
+}

@@ -4,21 +4,26 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pokémon Word Guesser</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="css/components.css">
+        <link rel="stylesheet" href="css/compatibility.css">
     </head>
     <body>
-        <h1>Pokémon Word Guesser</h1>
+        <header>
+            <h1>Pokémon Word Guesser</h1>
+        </header>
 
-        <main>
-            <section id="hints-panel">
+        <main class="game-container">
+            <section class="panel" id="hints-panel">
                 <h2>Hints</h2>
 
                 <div id="hint-input-area">
                     <input type="text" id="hint-input" placeholder="Enter a hint...">
-                    <button id="add-hint-btn">Add Hint</button>
+                    <button id="add-hint-btn" class="primary">Add Hint</button>
                 </div>
 
-                <ol id="hints-list">
+                <ol id="hints-list" class="hint-list">
                     <li></li>
                     <li></li>
                     <li></li>
@@ -61,10 +66,10 @@
                     <li></li>
                 </ol>
             </section>
-            <aside id="answers-panel">
+            <section class="panel" id="answers-panel">
                 <h2>Answers</h2>
 
-                <ol id="answers-list">
+                <ol id="answers-list" class="answer-list">
                     <li>
                         <span class="answer-text"></span>
                         <button class="reveal-btn">Reveal</button>
@@ -116,50 +121,51 @@
                         <span class="guesser-tag"></span>
                     </li>
                 </ol>
-            </aside>
-        </main>
+            </section>
         
-        <footer id="scores-panel">
-            <h2>Scores</h2>
+            <section class="panel score-panel" id="scores-panel">
+                <h2>Scores</h2>
 
-            <div id="players">
-                <div class="player red">
-                    <span class="hint-label"></span>
-                    <span class="player-name">Player 1</span>
-                    <span class="player-score">0</span>
+                <div id="players">
+                    <div class="player red">
+                        <span class="hint-label"></span>
+                        <span class="player-name">Player 1</span>
+                        <span class="player-score">0</span>
+                    </div>
+
+                    <div class="player blue">
+                        <span class="hint-label"></span>
+                        <span class="player-name">Player 2</span>
+                        <span class="player-score">0</span>
+                    </div>
+
+                    <div class="player green">
+                        <span class="hint-label"></span>
+                        <span class="player-name">Player 3</span>
+                        <span class="player-score">0</span>
+                    </div>
+
+                    <div class="player yellow">
+                        <span class="hint-label"></span>
+                        <span class="player-name">Player 4</span>
+                        <span class="player-score">0</span>
+                    </div>
                 </div>
 
-                <div class="player blue">
-                    <span class="hint-label"></span>
-                    <span class="player-name">Player 2</span>
-                    <span class="player-score">0</span>
+                <div id="reset-area">
+                    <hr>
+                    <button id="new-round-btn" class="primary">Next Round</button>
+                    <button id="restart-game-btn" class="secondary">Restart Game</button>
                 </div>
+            </section>
 
-                <div class="player green">
-                    <span class="hint-label"></span>
-                    <span class="player-name">Player 3</span>
-                    <span class="player-score">0</span>
-                </div>
-
-                <div class="player yellow">
-                    <span class="hint-label"></span>
-                    <span class="player-name">Player 4</span>
-                    <span class="player-score">0</span>
-                </div>
-            </div>
-
-            <div id="reset-area">
-                <hr>
-                <button id="new-round-btn">Next Round</button>
-                <button id="restart-game-btn">Restart Game</button>
-            </div>
-        </footer>
+        </main>
 
         <div id="player-select" class="hidden">
-            <button data-player="0">P1</button>
-            <button data-player="1">P2</button>
-            <button data-player="2">P3</button>
-            <button data-player="3">P4</button>
+            <button data-player="0" class="red">P1</button>
+            <button data-player="1" class="blue">P2</button>
+            <button data-player="2" class="green">P3</button>
+            <button data-player="3" class="yellow">P4</button>
         </div>
 
         <script type="module" src="js/main.js"></script>

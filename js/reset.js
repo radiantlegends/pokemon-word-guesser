@@ -1,5 +1,5 @@
 import { state } from "./state.js";
-import { updateHintGiver } from "./players.js";
+import { updateHintGiver, updateScore } from "./players.js";
 
 function resetBoard() {
     const input = document.getElementById("hint-input");
@@ -33,8 +33,26 @@ function resetBoard() {
     input.focus();
 }
 
+export function completeRound(answerItems) {
+    if (Array.from(answerItems).every((answerItem) => answerItem.dataset.player !== undefined)) {
+        const points = 25 - state.hintIndex;
+        updateScore(state.hintGiver, points);
+        state.roundComplete = true;
+        resetRound();
+    }
+}
+
+export function skipRound() {
+    if (!state.roundComplete) {
+        updateScore(state.hintGiver, -15);
+    }
+
+    resetRound();
+}
+
 export function resetRound() {
     resetBoard();
+    state.roundComplete = false;
     state.hintGiver = (state.hintGiver + 1) % 4;
     updateHintGiver();
 }
@@ -45,7 +63,7 @@ export function resetGame() {
 
     state.players.forEach((player) => {
         player.score = 0;
-        if(player.element) {
+        if (player.element) {
             player.element.textContent = player.score;
         }
     });

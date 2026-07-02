@@ -22,7 +22,7 @@ export function updateHintGiver() {
     });
 
     const hintGiverButton = document.querySelector(`#player-select button[data-player="${state.hintGiver}"]`);
-    if(hintGiverButton) {
+    if (hintGiverButton) {
         hintGiverButton.disabled = true;
     }
 }

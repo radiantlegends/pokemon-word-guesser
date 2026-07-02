@@ -8,12 +8,12 @@ export function setupHints() {
     function addHint() {
         const text = input.value.trim();
 
-        if(!text) {
+        if (!text) {
             console.warn("No hint entered.");
             return;
         }
 
-        if(state.hintIndex >= slots.length) {
+        if (state.hintIndex >= slots.length) {
             console.warn("No slots available for a new hint.");
             return;
         }
@@ -26,7 +26,7 @@ export function setupHints() {
 
     button.addEventListener("click", addHint);
     input.addEventListener("keydown", (event) => {
-        if(event.key === "Enter") {
+        if (event.key === "Enter") {
             event.preventDefault();
             addHint();
         }

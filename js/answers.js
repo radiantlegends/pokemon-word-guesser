@@ -1,6 +1,6 @@
 import { state } from "./state.js";
 import { updateScore } from "./players.js";
-import { resetRound } from "./reset.js";
+import { completeRound } from "./reset.js";
 
 export function setupAnswers() {
     const list = document.querySelectorAll("#answers-list li");
@@ -19,7 +19,7 @@ export function setupAnswers() {
         const revealBtn = li.querySelector(".reveal-btn");
 
         revealBtn.addEventListener("click", () => {
-            if(revealBtn.disabled) return;
+            if (revealBtn.disabled) return;
             showPlayerSelector(revealBtn, index);
         });
     });
@@ -28,7 +28,7 @@ export function setupAnswers() {
         const tag = li.querySelector(".guesser-tag");
 
         tag.addEventListener("click", () => {
-            if(!li.dataset.player) return;
+            if (!li.dataset.player) return;
 
             showPlayerSelector(tag, index);
             selector.dataset.isChange = "true";
@@ -41,7 +41,7 @@ export function setupAnswers() {
             const answerIndex = Number(selector.dataset.currentIndex);
             const isChange = selector.dataset.isChange === "true";
 
-            if(playerIndex === state.hintGiver) {
+            if (playerIndex === state.hintGiver) {
                 console.warn("Hint giver cannot guess.");
                 return;
             }
@@ -51,7 +51,7 @@ export function setupAnswers() {
             const revealBtn = li.querySelector(".reveal-btn");
             const tag = li.querySelector(".guesser-tag");
 
-            if(isChange && li.dataset.player !== undefined) {
+            if (isChange && li.dataset.player !== undefined) {
                 const oldPlayer = Number(li.dataset.player);
                 updateScore(oldPlayer, -1);
             } else {
@@ -71,11 +71,7 @@ export function setupAnswers() {
             selector.classList.add("hidden");
             delete selector.dataset.isChange;
 
-            if(Array.from(list).every((answerItem) => answerItem.dataset.player !== undefined)) {
-                const points = 25 - state.hintIndex;
-                updateScore(state.hintGiver, points);
-                resetRound();
-            }
+            completeRound(list);
         });
     });
 }

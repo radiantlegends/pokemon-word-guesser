@@ -14,14 +14,18 @@
             <h1>Pokémon Word Guesser</h1>
         </header>
 
+        <div id="hint-input-area">
+            <div class="hint-input-row">
+                <input type="text" id="hint-input" placeholder="Enter a hint...">
+                <button id="add-hint-btn" class="primary">Submit</button>
+            </div>
+
+            <div id="hint-error" class="hidden"></div>
+        </div>
+
         <main class="game-container">
             <section class="panel" id="hints-panel">
                 <h2>Hints</h2>
-
-                <div id="hint-input-area">
-                    <input type="text" id="hint-input" placeholder="Enter a hint...">
-                    <button id="add-hint-btn" class="primary">Add Hint</button>
-                </div>
 
                 <ol id="hints-list" class="hint-list">
                     <li></li>

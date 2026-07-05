@@ -129,7 +129,7 @@ The project should be lightweight, easy to host on GitHub Pages, and expandable 
 ### Phase 2
 - [x] Refactor JS to modules
 - [x] Improved styling
-- [ ] Animations
+- [ ] Animations and visual feedback
 - [ ] LocalStorage saving
 - [ ] Custom answer lists
 - [ ] Copy answers to clipboard

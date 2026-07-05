@@ -61,6 +61,7 @@ export function setupAnswers() {
             }
 
             li.dataset.player = playerIndex;
+            li.classList.add("revealed");
 
             tag.className = "guesser-tag";
             tag.classList.add(state.players[playerIndex].color);

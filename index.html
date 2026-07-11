@@ -9,167 +9,169 @@
         <link rel="stylesheet" href="css/components.css">
         <link rel="stylesheet" href="css/compatibility.css">
     </head>
-    <body>
-        <header>
-            <h1>Pokémon Word Guesser</h1>
-        </header>
+    <body class="loading">
+        <div id="app">
+            <header>
+                <h1>Pokémon Word Guesser</h1>
+            </header>
 
-        <div id="hint-input-area">
-            <div class="hint-input-row">
-                <input type="text" id="hint-input" placeholder="Enter a hint...">
-                <button id="add-hint-btn" class="primary">Submit</button>
+            <div id="hint-input-area">
+                <div class="hint-input-row">
+                    <input type="text" id="hint-input" placeholder="Enter a hint...">
+                    <button id="add-hint-btn" class="primary">Submit</button>
+                </div>
+
+                <div id="hint-error" class="hidden"></div>
             </div>
 
-            <div id="hint-error" class="hidden"></div>
-        </div>
+            <main class="game-container">
+                <section class="panel" id="hints-panel">
+                    <h2>Hints</h2>
 
-        <main class="game-container">
-            <section class="panel" id="hints-panel">
-                <h2>Hints</h2>
+                    <ol id="hints-list" class="hint-list">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ol>
+                </section>
+                <section class="panel" id="answers-panel">
+                    <h2>Answers</h2>
 
-                <ol id="hints-list" class="hint-list">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ol>
-            </section>
-            <section class="panel" id="answers-panel">
-                <h2>Answers</h2>
+                    <ol id="answers-list" class="answer-list">
+                        <li>
+                            <span class="answer-text"></span>
+                            <button class="reveal-btn">Reveal</button>
+                            <span class="guesser-tag"></span>
+                        </li>
+                        <li>
+                            <span class="answer-text"></span>
+                            <button class="reveal-btn">Reveal</button>
+                            <span class="guesser-tag"></span>
+                        </li>
+                        <li>
+                            <span class="answer-text"></span>
+                            <button class="reveal-btn">Reveal</button>
+                            <span class="guesser-tag"></span>
+                        </li>
+                        <li>
+                            <span class="answer-text"></span>
+                            <button class="reveal-btn">Reveal</button>
+                            <span class="guesser-tag"></span>
+                        </li>
+                        <li>
+                            <span class="answer-text"></span>
+                            <button class="reveal-btn">Reveal</button>
+                            <span class="guesser-tag"></span>
+                        </li>
+                        <li>
+                            <span class="answer-text"></span>
+                            <button class="reveal-btn">Reveal</button>
+                            <span class="guesser-tag"></span>
+                        </li>
+                        <li>
+                            <span class="answer-text"></span>
+                            <button class="reveal-btn">Reveal</button>
+                            <span class="guesser-tag"></span>
+                        </li>
+                        <li>
+                            <span class="answer-text"></span>
+                            <button class="reveal-btn">Reveal</button>
+                            <span class="guesser-tag"></span>
+                        </li>
+                        <li>
+                            <span class="answer-text"></span>
+                            <button class="reveal-btn">Reveal</button>
+                            <span class="guesser-tag"></span>
+                        </li>
+                        <li>
+                            <span class="answer-text"></span>
+                            <button class="reveal-btn">Reveal</button>
+                            <span class="guesser-tag"></span>
+                        </li>
+                    </ol>
+                </section>
+            
+                <section class="panel score-panel" id="scores-panel">
+                    <h2>Scores</h2>
 
-                <ol id="answers-list" class="answer-list">
-                    <li>
-                        <span class="answer-text"></span>
-                        <button class="reveal-btn">Reveal</button>
-                        <span class="guesser-tag"></span>
-                    </li>
-                    <li>
-                        <span class="answer-text"></span>
-                        <button class="reveal-btn">Reveal</button>
-                        <span class="guesser-tag"></span>
-                    </li>
-                    <li>
-                        <span class="answer-text"></span>
-                        <button class="reveal-btn">Reveal</button>
-                        <span class="guesser-tag"></span>
-                    </li>
-                    <li>
-                        <span class="answer-text"></span>
-                        <button class="reveal-btn">Reveal</button>
-                        <span class="guesser-tag"></span>
-                    </li>
-                    <li>
-                        <span class="answer-text"></span>
-                        <button class="reveal-btn">Reveal</button>
-                        <span class="guesser-tag"></span>
-                    </li>
-                    <li>
-                        <span class="answer-text"></span>
-                        <button class="reveal-btn">Reveal</button>
-                        <span class="guesser-tag"></span>
-                    </li>
-                    <li>
-                        <span class="answer-text"></span>
-                        <button class="reveal-btn">Reveal</button>
-                        <span class="guesser-tag"></span>
-                    </li>
-                    <li>
-                        <span class="answer-text"></span>
-                        <button class="reveal-btn">Reveal</button>
-                        <span class="guesser-tag"></span>
-                    </li>
-                    <li>
-                        <span class="answer-text"></span>
-                        <button class="reveal-btn">Reveal</button>
-                        <span class="guesser-tag"></span>
-                    </li>
-                    <li>
-                        <span class="answer-text"></span>
-                        <button class="reveal-btn">Reveal</button>
-                        <span class="guesser-tag"></span>
-                    </li>
-                </ol>
-            </section>
-        
-            <section class="panel score-panel" id="scores-panel">
-                <h2>Scores</h2>
+                    <div id="players">
+                        <div class="player red">
+                            <span class="hint-label"></span>
+                            <span class="player-name">Player 1</span>
+                            <span class="player-score">0</span>
+                        </div>
 
-                <div id="players">
-                    <div class="player red">
-                        <span class="hint-label"></span>
-                        <span class="player-name">Player 1</span>
-                        <span class="player-score">0</span>
+                        <div class="player blue">
+                            <span class="hint-label"></span>
+                            <span class="player-name">Player 2</span>
+                            <span class="player-score">0</span>
+                        </div>
+
+                        <div class="player green">
+                            <span class="hint-label"></span>
+                            <span class="player-name">Player 3</span>
+                            <span class="player-score">0</span>
+                        </div>
+
+                        <div class="player yellow">
+                            <span class="hint-label"></span>
+                            <span class="player-name">Player 4</span>
+                            <span class="player-score">0</span>
+                        </div>
                     </div>
 
-                    <div class="player blue">
-                        <span class="hint-label"></span>
-                        <span class="player-name">Player 2</span>
-                        <span class="player-score">0</span>
+                    <div id="reset-area">
+                        <hr>
+                        <button id="new-round-btn" class="primary">Next Round</button>
+                        <button id="restart-game-btn" class="secondary">Restart Game</button>
                     </div>
+                </section>
 
-                    <div class="player green">
-                        <span class="hint-label"></span>
-                        <span class="player-name">Player 3</span>
-                        <span class="player-score">0</span>
-                    </div>
+            </main>
 
-                    <div class="player yellow">
-                        <span class="hint-label"></span>
-                        <span class="player-name">Player 4</span>
-                        <span class="player-score">0</span>
-                    </div>
-                </div>
-
-                <div id="reset-area">
-                    <hr>
-                    <button id="new-round-btn" class="primary">Next Round</button>
-                    <button id="restart-game-btn" class="secondary">Restart Game</button>
-                </div>
-            </section>
-
-        </main>
-
-        <div id="player-select" class="hidden">
-            <button data-player="0" class="red">P1</button>
-            <button data-player="1" class="blue">P2</button>
-            <button data-player="2" class="green">P3</button>
-            <button data-player="3" class="yellow">P4</button>
+            <div id="player-select" class="hidden">
+                <button data-player="0" class="red">P1</button>
+                <button data-player="1" class="blue">P2</button>
+                <button data-player="2" class="green">P3</button>
+                <button data-player="3" class="yellow">P4</button>
+            </div>
         </div>
 
         <script type="module" src="js/main.js"></script>

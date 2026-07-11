@@ -25,6 +25,30 @@ body {
     color: #333;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4dabf7;
+    z-index: 10;
+}
+
+body.loading::before {
+    content: "Loading...";
+    display: flex;
+}
+
+body.loading #app {
+    opacity: 0;
+    visibility: hidden;
+}
+
 h1, h2 {
     margin: 0;
 }

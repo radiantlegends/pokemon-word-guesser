@@ -1,10 +1,40 @@
-import { state } from "./state.js";
+import { saveState, state } from "./state.js";
 import { updateScore } from "./players.js";
 import { completeRound } from "./reset.js";
 
 export function setupAnswers() {
     const list = document.querySelectorAll("#answers-list li");
     const selector = document.getElementById("player-select");
+
+    function renderAnswerState(index) {
+        const li = list[index];
+        const answerText = li.querySelector(".answer-text");
+        const revealBtn = li.querySelector(".reveal-btn");
+        const tag = li.querySelector(".guesser-tag");
+        const answerState = state.answerStates[index] || { revealed: false, player: null };
+
+        if (answerState.revealed) {
+            answerText.textContent = state.answers[index];
+            revealBtn.disabled = true;
+            revealBtn.textContent = "Revealed";
+            li.classList.add("revealed");
+
+            if (answerState.player !== null && answerState.player !== undefined) {
+                li.dataset.player = answerState.player;
+                tag.className = "guesser-tag";
+                tag.classList.add(state.players[answerState.player].color);
+                tag.textContent = `P${answerState.player + 1}`;
+            }
+        } else {
+            answerText.textContent = "";
+            revealBtn.disabled = false;
+            revealBtn.textContent = "Reveal";
+            li.classList.remove("revealed");
+            delete li.dataset.player;
+            tag.className = "guesser-tag";
+            tag.textContent = "";
+        }
+    }
 
     function showPlayerSelector(element, index) {
         const rect = element.getBoundingClientRect();
@@ -16,6 +46,8 @@ export function setupAnswers() {
     }
 
     list.forEach((li, index) => {
+        renderAnswerState(index);
+
         const revealBtn = li.querySelector(".reveal-btn");
 
         revealBtn.addEventListener("click", () => {
@@ -67,7 +99,9 @@ export function setupAnswers() {
             tag.classList.add(state.players[playerIndex].color);
             tag.textContent = `P${playerIndex + 1}`;
 
+            state.answerStates[answerIndex] = { revealed: true, player: playerIndex };
             updateScore(playerIndex, 1);
+            saveState();
 
             selector.classList.add("hidden");
             delete selector.dataset.isChange;

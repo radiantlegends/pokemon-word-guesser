@@ -1,11 +1,14 @@
-import { state } from "./state.js";
+import { saveState, state } from "./state.js";
 import { updateHintGiver, updateScore } from "./players.js";
 
 function resetBoard() {
     const input = document.getElementById("hint-input");
     const slots = document.querySelectorAll("#hints-list li");
 
+    state.hintInput = "";
+    state.hints = [];
     state.hintIndex = 0;
+    state.answerStates = Array.from({ length: state.answers.length }, () => ({ revealed: false, player: null }));
 
     slots.forEach((slot) => {
         slot.textContent = "";
@@ -31,6 +34,7 @@ function resetBoard() {
 
     input.value = "";
     input.focus();
+    saveState();
 }
 
 export function completeRound(answerItems) {
@@ -69,4 +73,5 @@ export function resetGame() {
     });
 
     updateHintGiver();
+    saveState();
 }

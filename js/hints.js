@@ -1,10 +1,22 @@
-import { state } from "./state.js";
+import { saveState, state } from "./state.js";
 
 export function setupHints() {
     const input = document.getElementById("hint-input");
     const button = document.getElementById("add-hint-btn");
     const slots = document.querySelectorAll("#hints-list li");
     const errorEl = document.getElementById("hint-error");
+
+    function renderHints() {
+        slots.forEach((slot, index) => {
+            slot.textContent = "";
+
+            if (index < state.hints.length) {
+                const span = document.createElement("span");
+                span.textContent = state.hints[index];
+                slot.appendChild(span);
+            }
+        });
+    }
 
     function showHintError(message) {
         errorEl.textContent = message;
@@ -24,7 +36,7 @@ export function setupHints() {
             return;
         }
 
-            if (text.includes(" ")) {
+        if (text.includes(" ")) {
             showHintError("Hints must be a single word.");
             return;
         }
@@ -34,13 +46,10 @@ export function setupHints() {
             return;
         }
 
-        //Clear previous errors.
         errorEl.textContent = "";
         errorEl.classList.add("hidden");
 
         const li = slots[state.hintIndex];
-
-        //Wrap the text in a span to animate it.
         const span = document.createElement("span");
         span.textContent = text;
         span.classList.add("hint-text-enter");
@@ -49,17 +58,27 @@ export function setupHints() {
 
         requestAnimationFrame(() => {
             span.classList.add("hint-text-enter-active");
-        })
+        });
         span.addEventListener("transitionend", () => {
             span.classList.remove("hint-text-enter", "hint-text-enter-active");
-        })
+        });
 
+        state.hints.push(text);
         state.hintIndex += 1;
+        state.hintInput = "";
         input.value = "";
         input.focus();
+        saveState();
     }
 
+    input.value = state.hintInput;
+    renderHints();
+
     button.addEventListener("click", addHint);
+    input.addEventListener("input", () => {
+        state.hintInput = input.value;
+        saveState();
+    });
     input.addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
             event.preventDefault();

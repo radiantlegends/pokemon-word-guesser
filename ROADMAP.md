@@ -139,6 +139,8 @@ The project should be lightweight, easy to host on GitHub Pages, and expandable 
 - [ ] Random Pokémon generator
 - [ ] Sprite display
 - [ ] Refined styling
+- [ ] Highlight/ping hint
+- [ ] Input player names
 
 ### Phase 4
 - [ ] Presenter/Guesser modes

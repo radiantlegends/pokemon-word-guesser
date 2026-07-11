@@ -1,14 +1,18 @@
-import { state } from "./state.js";
+import { saveState, state } from "./state.js";
 
 export function setupPlayers() {
     state.players.forEach((player, index) => {
         player.element = document.querySelector(`.player:nth-child(${index + 1}) .player-score`);
+        if (player.element) {
+            player.element.textContent = player.score;
+        }
     });
 }
 
 export function updateScore(playerIndex, amount) {
     state.players[playerIndex].score += amount;
     state.players[playerIndex].element.textContent = state.players[playerIndex].score;
+    saveState();
 }
 
 export function updateHintGiver() {
@@ -25,4 +29,6 @@ export function updateHintGiver() {
     if (hintGiverButton) {
         hintGiverButton.disabled = true;
     }
+
+    saveState();
 }

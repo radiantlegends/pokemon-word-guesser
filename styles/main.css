@@ -1,0 +1,350 @@
+:root {
+  --bg: #f7f6f9;
+  --card-bg: #ffffff;
+  --border: #e2e2e8;
+  --radius: 10px;
+  --shadow: 0 2px 6px rgba(0,0,0,0.06);
+  --red: #ff6b6b;
+  --red-hover: #e65252;
+  --blue: #4dabf7;
+  --blue-hover: #3892dd;
+  --green: #69db7c;
+  --green-hover: #4bc860;
+  --yellow: #ffd43b;
+  --yellow-hover: #f1be23;
+  --font: "Inter", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  background: var(--bg);
+  font-family: var(--font);
+  color: #333;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4dabf7;
+  z-index: 10;
+}
+body.loading::before {
+  content: "Loading...";
+  display: flex;
+}
+body.loading#app {
+  opacity: 0;
+  visibility: hidden;
+}
+
+h1, h2 {
+  margin: 0;
+  text-align: center;
+}
+
+.game-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  flex: 1;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+.panel {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.score-panel {
+  grid-column: span 2;
+}
+
+#hint-input-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.hint-input-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.hint-list, .answer-list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(10, 46px);
+  grid-auto-columns: 1fr;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.hint-list li, .answer-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 6px 10px;
+  background: #fafafa;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.answer-list li {
+  justify-content: space-around;
+}
+
+.answer-list li.revealed {
+  justify-content: space-between;
+}
+
+#players {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  75% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.hint-text-enter {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.hint-text-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+button {
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+button.primary {
+  background: #4dabf7;
+}
+button.primary:hover {
+  background: #339af0;
+}
+button.secondary, button.reveal-btn {
+  background: #adb5bd;
+}
+button.secondary:hover, button.reveal-btn:hover {
+  background: #9ba1a8;
+}
+button:disabled {
+  display: none;
+}
+
+.red {
+  background: var(--red);
+}
+
+.blue {
+  background: var(--blue);
+}
+
+.green {
+  background: var(--green);
+}
+
+.yellow {
+  background: var(--yellow);
+}
+
+button.red:hover, span.red:hover {
+  background: var(--red-hover);
+}
+
+button.blue:hover, span.blue:hover {
+  background: var(--blue-hover);
+}
+
+button.green:hover, span.green:hover {
+  background: var(--green-hover);
+}
+
+button.yellow:hover, span.yellow:hover {
+  background: var(--yellow-hover);
+}
+
+#hint-input-area input {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+}
+#hint-input-area input.input-error {
+  animation: shake 0.3s ease;
+  outline: none;
+  border-color: #e74c3c;
+}
+
+#hint-error {
+  min-height: 1rem;
+  margin-top: 4px;
+  color: #e74c3c;
+  font-size: 0.85rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+#hint-error.show {
+  opacity: 1;
+}
+
+.hint-list {
+  counter-reset: hint-counter;
+}
+
+.hint-list li:before {
+  counter-increment: hint-counter;
+  content: counter(hint-counter) ". ";
+}
+
+#player-select {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 0.25rem;
+  border-radius: 4px;
+  display: flex;
+  gap: 0.25rem;
+}
+
+#player-select.hidden {
+  display: none;
+}
+
+#player-select button {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.guesser-tag {
+  padding: 4px 8px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  transition: background 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+.guesser-tag:empty {
+  pointer-events: none;
+  background: transparent;
+  transition: none;
+}
+.guesser-tag:hover::after {
+  content: "Click to change winner.";
+  position: absolute;
+  top: -1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: var(--radius);
+  background: #fafafa;
+  border: 1px solid var(--border);
+  width: 82px;
+}
+
+.player.red {
+  border-top: 6px solid var(--red);
+}
+
+.player.blue {
+  border-top: 6px solid var(--blue);
+}
+
+.player.green {
+  border-top: 6px solid var(--green);
+}
+
+.player.yellow {
+  border-top: 6px solid var(--yellow);
+}
+
+.hint-label {
+  height: 21px;
+}
+
+#reset-area {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#reset-area hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+  .game-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .hint-list, .answer-list {
+    grid-auto-flow: row;
+    grid-template-rows: auto;
+  }
+  #players {
+    flex-wrap: wrap;
+  }
+}/*# sourceMappingURL=main.css.map */

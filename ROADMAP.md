@@ -130,12 +130,12 @@ The project should be lightweight, easy to host on GitHub Pages, and expandable 
 - [x] Refactor JS to modules
 - [x] Improved styling
 - [ ] Animations and visual feedback
-- [ ] LocalStorage saving
+- [x] LocalStorage saving
 - [ ] Custom answer lists
-- [ ] Copy answers to clipboard
 
 ### Phase 3
 - [ ] PokéAPI integration
+- [ ] Copy answers to clipboard
 - [ ] Random Pokémon generator
 - [ ] Sprite display
 - [ ] Refined styling

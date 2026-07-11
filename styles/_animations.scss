@@ -1,0 +1,18 @@
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
+.hint-text-enter {
+    opacity: 0;
+    transform: translateX(10px);
+}
+
+.hint-text-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}

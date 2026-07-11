@@ -1,0 +1,52 @@
+#player-select {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 0.25rem;
+    border-radius: 4px;
+    display: flex;
+    gap: 0.25rem;
+}
+
+#player-select.hidden {
+    display: none;
+}
+
+#player-select button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.guesser-tag {
+    padding: 4px 8px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    transition: background 0.2s ease;
+    cursor: pointer;
+    position: relative;
+
+    &:empty {
+        pointer-events: none;
+        background: transparent;
+        transition: none;
+    }
+
+    &:hover::after {
+        content: "Click to change winner.";
+        position: absolute;
+        top: -1.8rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #333;
+        color: white;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        opacity: 0.9;
+        pointer-events: none;
+    }
+}

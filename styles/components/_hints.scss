@@ -1,0 +1,37 @@
+#hint-input-area input {
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+
+    &.input-error {
+        animation: shake 0.3s ease;
+        outline: none;
+        border-color: #e74c3c;
+    }
+}
+
+#hint-error {
+    min-height: 1rem;
+    margin-top: 4px;
+    color: #e74c3c;
+    font-size: 0.85rem;
+    font-weight: bold;
+
+    opacity: 0;
+    transition: opacity 0.2s ease;
+
+    &.show {
+        opacity: 1;
+    }
+}
+
+.hint-list {
+    counter-reset: hint-counter;
+}
+
+.hint-list li {
+    &:before {
+        counter-increment: hint-counter;
+        content: counter(hint-counter) ". ";
+    }
+}

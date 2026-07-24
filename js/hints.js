@@ -46,8 +46,8 @@ export function setupHints() {
             return;
         }
 
-        errorEl.textContent = "";
-        errorEl.classList.add("hidden");
+        // errorEl.textContent = "";
+        errorEl.classList.remove("show");
 
         const li = slots[state.hintIndex];
         const span = document.createElement("span");

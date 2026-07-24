@@ -11,17 +11,24 @@
 }
 
 #hint-error {
-    min-height: 1rem;
-    margin-top: 4px;
-    color: #e74c3c;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #e74c3c;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
     font-size: 0.85rem;
     font-weight: bold;
 
     opacity: 0;
+    pointer-events: none;
     transition: opacity 0.2s ease;
+    animation: slideOutLeft 1s ease;
 
     &.show {
         opacity: 1;
+        animation: slideInRight 0.2s ease;
     }
 }
 

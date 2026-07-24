@@ -6,6 +6,16 @@
     100% { transform: translateX(0); }
 }
 
+@keyframes slideInRight {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideOutLeft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
 .hint-text-enter {
     opacity: 0;
     transform: translateX(10px);
